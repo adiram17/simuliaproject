@@ -25,7 +25,7 @@ SECRET_KEY = 'raset$09-p+jbp16onh7=d9!q5nbpch*c+&o^v^-yd_mwm-3_t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.6','127.0.0.1']
+ALLOWED_HOSTS = ['192.168.1.6','127.0.0.1', 'adiram17.pythonanywhere.com']
 
 
 # Application definition
