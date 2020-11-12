@@ -1,0 +1,39 @@
+{% extends 'layout/app.html' %}
+{% load static %}
+{% block body %}
+<div id="content-wrapper">
+    <div class="container">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>L001</td>
+                    <td>Data Jagung L001</td>
+                    <td><a type="button" class="btn btn-success" href="#">Detail</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>L002</td>
+                    <td>Data Jagung L002</td>
+                    <td><a type="button" class="btn btn-success" href="#">Detail</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>L003</td>
+                    <td>Data Jagung L003</td>
+                    <td><a type="button" class="btn btn-success" href="#">Detail</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a type="button" class="btn btn-success btn-block mt-2" href="{%url 'serelia_create' %}">Add Data</a>
+        <a type="button" class="btn btn-secondary btn-block mt-2" href="{%url 'home' %}">Back</a>
+    </div>
+</div>
+{% endblock %}
+{% block javascript %}
+{% endblock %}
