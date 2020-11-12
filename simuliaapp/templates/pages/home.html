@@ -1,0 +1,48 @@
+{% extends 'layout/app.html' %}
+
+{% load static %}
+
+{% block body %}
+<div id="content-wrapper">
+    <div class="container">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+        <div class="text-center mb-2 ml-3 mr-3">
+            <img src="{%static 'images/logo.JPG'%}"></img>
+            <p>Sistem Managemen Mutu Litbang Serelia</p>
+        </div>
+
+        <div class="text-center ml-5 mr-5 ">
+            <div class="mb-2">
+                <a type="button" href="{% url 'serelia_create'%}" class="btn btn-success btn-block">Benih Tertua</a>
+            </div>
+            <div class="mb-2">
+                <a type="button" href="#" class="btn btn-success btn-block">Benih Inti</a>
+            </div>
+            <div class="mb-2">
+                <a type="button" href="#" class="btn btn-success btn-block">Benih Hibrida</a>
+            </div>
+            <div class="mb-2">
+                <a type="button" href="#" class="btn btn-success btn-block">Benih UPBS</a>
+            </div>
+            <div class="mb-2">
+                <a type="button" href="#" class="btn btn-success btn-block">Prosessing Benih</a>
+            </div>
+            <div class="mb-2">
+                <a type="button" href="#" class="btn btn-success btn-block">Rekap</a>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-3">
+        <p class="small">&copy;<script>document.write(new Date().getFullYear())</script> simuliajagung.com</p>
+    </div>
+    
+</div>
+</div>
+{% endblock %}
+{% block javascript %}
+
+{% endblock %}

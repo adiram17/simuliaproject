@@ -1,0 +1,48 @@
+{% extends 'layout/app.html' %}
+
+{% load static %}
+
+{% block body %}
+<div id="content-wrapper">
+
+    <div class="container">
+        <!-- Breadcrumbs-->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fas fa-user"></i>
+                Profile
+            </div>
+            <div class="card-body">
+                <div class="form-label-group mb-2">
+                    <input type="text" class="form-control" id="username" placeholder="Username"
+                        value="{{user.username}}" name="username" autofocus disabled>
+                    <label for="username">Username</label>
+                </div>
+                <div class="form-label-group mb-2">
+                    <input type="text" class="form-control" id="first_name" placeholder="First Name"
+                        value="{{user.first_name}}" name="first_name" autofocus disabled>
+                    <label for="first_name">First Name</label>
+                </div>
+                <div class="form-label-group mb-2">
+                    <input type="text" class="form-control" id="last_name" placeholder="Last Name"
+                        value="{{user.last_name}}" name="last_name" autofocus disabled>
+                    <label for="last_name">Last Name</label>
+                </div>
+                <div class="form-label-group mb-2">
+                    <input type="text" class="form-control" id="email" placeholder="Email"
+                        value="{{user.email}}" name="email" autofocus disabled>
+                    <label for="email">Email</label>
+                </div>
+                <div>
+                    {% include 'includes/bs4_form_all.html' with form=form %}
+                    <a type="button" class="btn btn-success" href="{%url 'home'%}">Kembali</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascript %}
+
+{% endblock %}

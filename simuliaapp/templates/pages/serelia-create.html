@@ -1,0 +1,26 @@
+{% extends 'layout/app.html' %}
+{% load static %}
+{% block body %}
+<div id="content-wrapper">
+    <div class="container">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+        <div class="ml-1 mr-1 ">
+            <div class="">
+                <form class="form-horizontal" role="form" method="POST">
+                    {% csrf_token %}
+                    {{form}}
+                    <button type="submit" class="btn btn-success btn-block mt-4"><i class="fa fa-sign-in"></i>Submit</button>
+                </form>
+            </div>
+        </div>
+    </div> 
+</div>
+</div>
+{% endblock %}
+{% block javascript %}
+
+{% endblock %}
