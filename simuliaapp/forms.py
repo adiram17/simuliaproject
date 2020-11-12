@@ -1,7 +1,7 @@
 from django import forms
 
 class SereliaForm(forms.Form):
-    sereliaid = forms.CharField(label='ID', widget=forms.TextInput(attrs={'class': 'form-control mb-2' ,'value':'L001', 'readonly':'true'}))
+    sereliaid = forms.CharField(label='ID', widget=forms.TextInput(attrs={'class': 'form-control mb-2' ,'value':'L004', 'readonly':'true'}))
     variety = forms.CharField(label='Varietas', widget=forms.TextInput(attrs={'class': 'form-control mb-2'}))
     address = forms.CharField(label='Alamat', widget=forms.TextInput(attrs={'class': 'form-control mb-2'}))
     area = forms.CharField(label='Luas lahan', widget=forms.TextInput(attrs={'class': 'form-control mb-2'}))

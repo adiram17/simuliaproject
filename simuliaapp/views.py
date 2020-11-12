@@ -32,17 +32,24 @@ def changePassword(request):
         'form': form
     })
 
+
+@login_required
+def sereliaList(request):  
+    return render(request,'pages/serelia_list.html',{})  
+
 @login_required
 def sereliaCreate(request):  
     if request.method == "POST":  
         form = SereliaForm(request.POST)  
         if form.is_valid():  
             try:  
-                form.save() 
-                model = form.instance
-                return redirect('home')  
+                #form.save() 
+                #model = form.instance
+                messages.success(request, "Data belum bisa ditambahkan masih inprogress development")
+                return redirect('serelia_list')  
             except:  
+                messages.error(request, "Data belum bisa ditambahkan masih inprogress development")
                 pass  
     else:  
         form = SereliaForm()  
-    return render(request,'pages/serelia-create.html',{'form':form})  
+    return render(request,'pages/serelia_create.html',{'form':form})  
