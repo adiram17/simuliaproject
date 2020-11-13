@@ -12,9 +12,6 @@
             <thead>
                 <tr>
                     <th>Location ID</th>
-                    <th>Alamat</th>
-                    <th>Tanggal Laporan</th>
-                    <th>Tanggal Tanam</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -22,9 +19,6 @@
                 {%for serelia in serelias%}
                 <tr>
                     <td>{{serelia.locationid}}</td>
-                    <td>{{serelia.address}}</td>
-                    <td>{{serelia.created_date}}</td>
-                    <td>{{serelia.plant_date}}</td>
                     <td><a type="button" class="btn btn-success" href="/serelia_detail/{{ serelia.id }}">Detail</a>
                         <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal"
                         data-sereliaid="{{ serelia.id }}" data-serelialocationid="{{ serelia.locationid }}">
