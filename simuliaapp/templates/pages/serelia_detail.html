@@ -1,6 +1,12 @@
 {% extends 'layout/app.html' %}
 {% load static %}
 {% block body %}
+<style>
+    .img-responsive {
+  width: 100%;
+  height: auto;
+}
+</style>
 <div id="content-wrapper">
     <div class="container">
         <div class="card mb-3">
@@ -44,7 +50,7 @@
                     <label for="cp_name">Contact Person</label>
                 </div>
                 <div class="text-center">
-                    <img src="/simuliaapp/media/{{serelia.evidence}}" alt="not found">
+                    <img src="/simuliaapp/media/{{serelia.evidence}}" alt="not found" class="img-responsive">
                 </div>
                 <div>
                     <a type="button" class="btn btn-secondary btn-block mt-2" href="{%url 'serelia_list' %}">Back</a>
