@@ -1,0 +1,61 @@
+{% extends 'layout/app.html' %}
+{% load static %}
+{% block body %}
+<div id="content-wrapper">
+    <div class="container">
+        <div class="card mb-3">
+            <div class="card-header">
+                View Detail {{serelia.locationid}}
+            </div>
+            <div class="card-body">
+                <div class="form-label-group mb-2">
+                    <input type="text" class="form-control" id="locationid" value="{{serelia.locationid}}"
+                        name="locationid" autofocus disabled>
+                    <label for="locationid">Location ID</label>
+                </div>
+                <div class="form-label-group mb-2">
+                    <input type="text" class="form-control" id="address" value="{{serelia.address}}"
+                        name="address" autofocus disabled>
+                    <label for="address">Alamat</label>
+                </div>
+                <div class="form-label-group mb-2">
+                    <input type="text" class="form-control" id="plant_date" value="{{serelia.plant_date}}"
+                        name="plant_date" autofocus disabled>
+                    <label for="plant_date">Tanggal Tanam</label>
+                </div>
+                <div class="form-label-group mb-2">
+                    <input type="text" class="form-control" id="variety" value="{{serelia.variety}}"
+                        name="variety" autofocus disabled>
+                    <label for="variety">Varietas</label>
+                </div>
+                <div class="form-label-group mb-2">
+                    <input type="text" class="form-control" id="area" value="{{serelia.area}}"
+                        name="area" autofocus disabled>
+                    <label for="area">Luas Lahan (ha)</label>
+                </div>
+                <div class="form-label-group mb-2">
+                    <input type="text" class="form-control" id="obstacle" value="{{serelia.obstacle}}"
+                        name="obstacle" autofocus disabled>
+                    <label for="obstacle">Kendala</label>
+                </div>
+                <div class="form-label-group mb-2">
+                    <input type="text" class="form-control" id="cp_name" value="{{serelia.cp_name}}"
+                        name="cp_name" autofocus disabled>
+                    <label for="cp_name">Contact Person</label>
+                </div>
+                <div class="text-center">
+                    <img src="/simuliaapp/media/{{serelia.evidence}}" alt="not found">
+                </div>
+                <div>
+                    <a type="button" class="btn btn-secondary btn-block mt-2" href="{%url 'serelia_list' %}">Back</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+{% endblock %}
+{% block javascript %}
+{% endblock %}

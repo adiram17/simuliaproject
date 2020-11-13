@@ -10,18 +10,23 @@
         {% endfor %}
         <div class="ml-1 mr-1 ">
             <div class="">
-                <form class="form-horizontal" role="form" method="POST">
+                <form class="form-horizontal" enctype="multipart/form-data"  role="form" method="POST">
                     {% csrf_token %}
                     {{form}}
                     <button type="submit" class="btn btn-success btn-block mt-4"></i>Submit</button>
-                    <a type="button" class="btn btn-secondary btn-block mt-2" href="javascript:history.back()">Cancel</a>
+                    <a type="button" class="btn btn-secondary btn-block mt-2"
+                        href="javascript:history.back()">Cancel</a>
                 </form>
             </div>
         </div>
-    </div> 
+    </div>
 </div>
 </div>
 {% endblock %}
 {% block javascript %}
-
+<script>
+    $(function () {
+      $("#plant_date").datepicker();
+    });
+  </script>
 {% endblock %}

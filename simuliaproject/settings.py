@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'simuliaapp'
+    'simuliaapp',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +125,6 @@ STATICFILES_DIRS= [os.path.join(BASE_DIR,'simuliaapp','static'),]
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = 'home'
+
+MEDIA_URL = '/simuliaapp/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'simuliaapp' , 'media')
