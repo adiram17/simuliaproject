@@ -2,11 +2,17 @@
 
 {% load static %}
 {% block body %}
+<style>
+    .img-responsive {
+  width: 50%;
+  height: auto;
+}
+</style>
 <div class="container">
     <div class="card card-login mx-auto mt-5">
         <div class="card-header">Login</div>
         <div class="text-center">
-            <img src="{%static 'images/logo.JPG' %}" alt="not found">
+            <img src="{%static 'images/logo.JPG' %}" alt="not found" class="img-responsive">
 
             <p>Sistem Managemen Mutu Litbang Serelia</p>
         </div>

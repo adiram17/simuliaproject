@@ -1,6 +1,13 @@
 {% extends 'layout/app.html' %}
 {% load static %}
 {% block body %}
+<style>
+    .link {
+        color: black;
+        text-decoration: none;
+        background-color: none;
+    }
+</style>
 <div id="content-wrapper">
     <div class="container">
         {% for message in messages %}
@@ -11,20 +18,38 @@
         <table class="table datatable display" id="serelia-list">
             <thead>
                 <tr>
-                    <th>Location ID</th>
-                    <th>Action</th>
+                    <th>Location List</th>
+
                 </tr>
             </thead>
             <tbody>
                 {%for serelia in serelias%}
                 <tr>
-                    <td>{{serelia.locationid}}</td>
-                    <td><a type="button" class="btn btn-success" href="/serelia_detail/{{ serelia.id }}">Detail</a>
-                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal"
-                        data-sereliaid="{{ serelia.id }}" data-serelialocationid="{{ serelia.locationid }}">
-                        Delete
-                    </button>
+                    <td>
+                        <a href="/serelia_detail/{{ serelia.id }}">
+                            <div class="link">
+                                <p class="media-body mb-0 lh-125 border-gray">
+
+                                    <strong class="d-block text-gray-dark">{{serelia.locationid}}</strong>
+                                    {{serelia.address}}
+                                    </br> {{serelia.created_date}}
+                                    </br> {{serelia.variety}}
+
+                                </p>
+                            </div>
+                        </a>
                     </td>
+
+
+                    <!--
+                    <td>
+                        <a type="button" class="btn btn-success" href="/serelia_detail/{{ serelia.id }}">Detail</a>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal"
+                            data-sereliaid="{{ serelia.id }}" data-serelialocationid="{{ serelia.locationid }}">
+                            Delete
+                        </button>
+                    </td>
+                    -->
                 </tr>
                 {%endfor%}
 
@@ -47,7 +72,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p id="contentmodal" ></p>
+                <p id="contentmodal"></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -71,7 +96,7 @@
         contentmodal.find('.modal-body #contentmodal').text(serelialocationid)
 
         var deletelinkmodal = document.getElementById('deletelinkmodal')
-        deletelinkmodal.href="/serelia_delete/"+sereliaid
+        deletelinkmodal.href = "/serelia_delete/" + sereliaid
 
     })
 </script>
