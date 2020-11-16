@@ -46,7 +46,7 @@
     <!-- Logout Modal-->
     <div class="modal fade small" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <p class="modal-title" id="exampleModalLabel">Konfirmasi</p>
@@ -65,6 +65,7 @@
 
     
     <!-- Bootstrap core JavaScript-->
+    <script src="{% static 'vendor/jquery/jquery.js' %}"></script>
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
@@ -87,8 +88,6 @@
     <!-- Fengyuan Chen's Datepicker -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.css" integrity="sha256-b88RdwbRJEzRx95nCuuva+hO5ExvXXnpX+78h8DjyOE=" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.js" integrity="sha256-/7FLTdzP6CfC1VBAj/rsp3Rinuuu9leMRGd354hvk0k=" crossorigin="anonymous"></script>
-
-
     <script>
         $(document).ready(function () {
             $('#example').dataTable({

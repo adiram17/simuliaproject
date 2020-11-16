@@ -72,3 +72,8 @@ def sereliaDelete(request, id):
 def sereliaDetail(request, id):
     serelia = Serelia.objects.get(id=id)
     return render(request, 'pages/serelia_detail.html', {'serelia':serelia})
+
+@login_required
+def sereliaImage(request, id):
+    serelia = Serelia.objects.get(id=id)
+    return render(request, 'pages/serelia_image.html', {'serelia':serelia})

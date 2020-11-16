@@ -9,6 +9,7 @@ urlpatterns = [
     path('serelia_list', views.sereliaList, name='serelia_list'),
     path('serelia_delete/<int:id>', views.sereliaDelete, name='serelia_delete'),
     path('serelia_detail/<int:id>', views.sereliaDetail, name='serelia_detail'),
+    path('serelia_image/<int:id>', views.sereliaImage, name='serelia_image'),
     path('serelia_create', views.sereliaCreate, name='serelia_create'),
     path('profile/', views.profile, name='profile'),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
