@@ -11,7 +11,7 @@
 <div id="content-wrapper">
     <div class="container">
         <div class="text-center"><h4>Data Benih</h4></div>
-        <a type="button" class="btn btn-success mt-2 mb-2" href="{%url 'serelia_create' %}">Add Data</a>
+        
         {% for message in messages %}
         <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
             {{ message }}
@@ -48,7 +48,7 @@
 
             </tbody>
         </table>
-        
+        <a type="button" class="btn btn-success mt-2" href="{%url 'serelia_create' %}">Add Data</a>
         <a type="button" class="btn btn-secondary btn-block mt-2" href="{%url 'home' %}">Back</a>
     </div>
 </div>
