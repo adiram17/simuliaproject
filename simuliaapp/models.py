@@ -27,7 +27,6 @@ class Variety(models.Model):
     def __str__(self):
         return self.name
 
-
 class Serelia(models.Model):
     SEED_TYPES = [
         ('Benih Tetua', 'Benih Tetua'),
@@ -59,7 +58,6 @@ class Serelia(models.Model):
 def serelia_delete(sender, instance, **kwargs):
     instance.evidence.delete(False) 
 
-
 class Processing(models.Model):
     processingid = models.CharField(db_column='processingid', max_length=50, blank=False, verbose_name='Processing ID')
     variety = models.ForeignKey(Variety, on_delete=models.CASCADE, verbose_name='Varietas')
@@ -84,7 +82,6 @@ class Processing(models.Model):
 @receiver(post_delete, sender=Processing)
 def processing_delete(sender, instance, **kwargs):
     instance.evidence.delete(False) 
-
 
 class Warehousestock(models.Model):
     stockid = models.CharField(db_column='stockid', max_length=50, blank=False, verbose_name='Stock ID')
