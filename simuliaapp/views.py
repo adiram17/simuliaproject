@@ -4,7 +4,7 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
 from .forms import SereliaForm
-from .models import Serelia
+from .models import Serelia, Contact
 import datetime
 
 # Create your views here.
@@ -35,9 +35,15 @@ def changePassword(request):
     })
 
 @login_required
-def sereliaList(request):
-    serelias = Serelia.objects.all()   
-    return render(request,'pages/serelia_list.html',{'serelias':serelias})  
+def sereliaList(request, seed_type=None):
+    seed_type_temp = ""
+    if (seed_type==None):
+        seed_type_temp="All"
+        serelias = Serelia.objects.all()
+    else:
+        seed_type_temp = seed_type
+        serelias = Serelia.objects.filter(seed_type=seed_type)
+    return render(request,'pages/serelia_list.html',{'serelias':serelias, 'seed_type':seed_type_temp })  
 
 @login_required
 def sereliaCreate(request):  
@@ -74,6 +80,6 @@ def sereliaDetail(request, id):
     return render(request, 'pages/serelia_detail.html', {'serelia':serelia})
 
 @login_required
-def sereliaImage(request, id):
-    serelia = Serelia.objects.get(id=id)
-    return render(request, 'pages/serelia_image.html', {'serelia':serelia})
+def contact(request):
+    contact = Contact.objects.first()
+    return render(request, 'pages/contact.html', {'contact':contact})
