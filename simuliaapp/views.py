@@ -43,7 +43,7 @@ def contact(request):
 def sereliaList(request, seed_type=None):
     seed_type_temp = ""
     if (seed_type==None):
-        seed_type_temp="All"
+        seed_type_temp="Semua"
         serelias = Serelia.objects.all()
     else:
         seed_type_temp = seed_type
