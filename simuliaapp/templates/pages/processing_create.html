@@ -10,7 +10,7 @@
         {% endfor %}
         <div class="ml-1 mr-1 ">
             <div class="">
-                <div class="text-center"><p><strong>Input Standing Crop Benih</strong></p></div>
+                <div class="text-center"><p><strong>Input Processing Benih</strong></p></div>
                 <form class="form-horizontal" enctype="multipart/form-data"  role="form" method="POST">
                     {% csrf_token %}
                     {{form}}
@@ -27,7 +27,8 @@
 {% block javascript %}
 <script>
     $(function () {
-      $("#plant_date").datepicker();
+      $("#in_date").datepicker();
+      $("#out_date").datepicker();
     });
   </script>
 {% endblock %}

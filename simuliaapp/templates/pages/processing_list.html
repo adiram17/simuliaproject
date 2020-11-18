@@ -10,53 +10,38 @@
 </style>
 <div id="content-wrapper">
     <div class="container">
-        
-        <div class="dropdown mb-2">
-            <button class="btn btn-success btn-sm dropdown-toggle mr-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Filter Tipe Benih
-            </button>
-            {{seed_type}}
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="/serelia_list">All</a>
-              <a class="dropdown-item" href="/serelia_list/Benih%20Tetua">Benih Tetua</a>
-              <a class="dropdown-item" href="/serelia_list/Benih%20Inti">Benih Inti</a>
-              <a class="dropdown-item" href="/serelia_list/Benih%20Hibrida">Benih Hibrida</a>
-              <a class="dropdown-item" href="/serelia_list/Benih%20UPBS">Benih UPBS</a>
-            </div>
-          </div>
         {% for message in messages %}
         <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
             {{ message }}
         </div>
         {% endfor %}
-        <table class="table datatable display table-sm" id="serelia-list">
+        <table class="table datatable display table-sm" id="processing-list">
             <thead >
                 <tr>
-                    <th>Location</th>
+                    <th>Processing</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                {%for serelia in serelias%}
+                {%for processing in processings%}
                 <tr>
                     <td>
                         <div class="link">
                             <p class="media-body mb-0 lh-125 border-gray">
                                 <small>
-                                    <strong class="d-block text-gray-dark">{{serelia.locationid}} -
-                                        {{serelia.address}}</strong>
-                                    Tgl Lapor: {{serelia.created_date}}
-                                    </br> Tipe: {{serelia.seed_type}}
+                                    <strong class="d-block text-gray-dark">{{processing.processingid}}</strong>
+                                    Tgl Lapor: {{processing.created_date}}
+                                    </br> Varietas: {{processing.variety}}
                                 </small>
                             </p>
                         </div>
                     </td>
                     <td>
                         <a type="button" class="btn btn-success mb-1 btn-block btn-sm"
-                            href="/serelia_detail/{{ serelia.id }}">Detail</a>
+                            href="/processing_detail/{{ processing.id }}">Detail</a>
                         <button type="button" class="btn btn-secondary mb-1 btn-block btn-sm" data-toggle="modal"
-                            data-target="#exampleModal" data-sereliaid="{{ serelia.id }}"
-                            data-serelialocationid="{{ serelia.locationid }} - {{ serelia.address }}">
+                            data-target="#exampleModal" data-id="{{ processing.id }}"
+                            data-processingid="{{ processing.processingid }}">
                             Delete
                         </button>
                     </td>
@@ -64,7 +49,7 @@
                 {%endfor%}
             </tbody>
         </table>
-        <a type="button" class="btn btn-success btn-block mt-2" href="{%url 'serelia_create' %}">Add Data</a>
+        <a type="button" class="btn btn-success btn-block mt-2" href="{%url 'processing_create' %}">Add Data</a>
         <a type="button" class="btn btn-secondary btn-block mt-2" href="{%url 'home' %}">Back</a>
     </div>
 </div>
@@ -94,7 +79,7 @@
 {% block javascript %}
 <script>
     $(document).ready(function () {
-        $('#serelia-list').DataTable({ 
+        $('#processing-list').DataTable({ 
             "pageLength": 5, 
             "paging":true,
             "searching": false 
@@ -102,14 +87,14 @@
     });
     $('#exampleModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
-        var sereliaid = button.data('sereliaid') // Extract info from data-* attributes
-        var serelialocationid = button.data('serelialocationid') // Extract info from data-* attributes
-
+        var id = button.data('id') // Extract info from data-* attributes
+        var processingid = button.data('processingid') // Extract info from data-* attributes
+        
         var contentmodal = $(this)
-        contentmodal.find('.modal-body #contentmodal').text(serelialocationid)
+        contentmodal.find('.modal-body #contentmodal').text(processingid)
 
         var deletelinkmodal = document.getElementById('deletelinkmodal')
-        deletelinkmodal.href = "/serelia_delete/" + sereliaid
+        deletelinkmodal.href = "/processing_delete/" + id
 
     })
 </script>

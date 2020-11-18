@@ -3,8 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
-from .forms import SereliaForm
-from .models import Serelia, Contact
+from .forms import SereliaForm, ProcessingForm, WarehousestockForm
+from .models import Serelia, Contact, Processing, Warehousestock
 import datetime
 
 # Create your views here.
@@ -33,6 +33,11 @@ def changePassword(request):
     return render(request, 'user/change_password.html', {
         'form': form
     })
+
+@login_required
+def contact(request):
+    contact = Contact.objects.first()
+    return render(request, 'pages/contact.html', {'contact':contact})
 
 @login_required
 def sereliaList(request, seed_type=None):
@@ -79,7 +84,81 @@ def sereliaDetail(request, id):
     serelia = Serelia.objects.get(id=id)
     return render(request, 'pages/serelia_detail.html', {'serelia':serelia})
 
+
 @login_required
-def contact(request):
-    contact = Contact.objects.first()
-    return render(request, 'pages/contact.html', {'contact':contact})
+def processingList(request):
+    processings = Processing.objects.all()
+    return render(request,'pages/processing_list.html',{'processings':processings})  
+
+@login_required
+def processingCreate(request):  
+    if request.method == "POST":  
+        form = ProcessingForm(request.POST, request.FILES)
+        if form.is_valid():  
+            try: 
+                processing = form.instance
+                processing.save()
+                processing.processingid = 'P'+str(10000+processing.id)
+                processing.save()
+                messages.success(request, "Data berhasil disimpan. "+str(processing.processingid))
+                return redirect('processing_list')  
+            except Exception as e:  
+                messages.error(request, "Data gagal disimpan.\n"+str(e))
+                return redirect('processing_list')  
+    else:  
+        form = ProcessingForm()  
+    return render(request,'pages/processing_create.html',{'form':form})  
+
+@login_required
+def processingDelete(request, id):
+    processing = Processing.objects.get(id=id)
+    try:
+        processing.delete()
+        messages.success(request, "Data berhasil dihapus.")
+    except:
+        messages.error(request, "Data gagal dihapus.")
+    return redirect('processing_list')
+
+@login_required
+def processingDetail(request, id):
+    processing = Processing.objects.get(id=id)
+    return render(request, 'pages/processing_detail.html', {'processing':processing})
+
+@login_required
+def warehousestockList(request):
+    warehousestocks = Warehousestock.objects.all()
+    return render(request,'pages/warehousestock_list.html',{'warehousestocks':warehousestocks})  
+
+@login_required
+def warehousestockCreate(request):  
+    if request.method == "POST":  
+        form = WarehousestockForm(request.POST, request.FILES)
+        if form.is_valid():  
+            try: 
+                warehousestock = form.instance
+                warehousestock.save()
+                warehousestock.stockid = 'S'+str(10000+warehousestock.id)
+                warehousestock.save()
+                messages.success(request, "Data berhasil disimpan. "+str(warehousestock.stockid))
+                return redirect('warehousestock_list')  
+            except Exception as e:  
+                messages.error(request, "Data gagal disimpan.\n"+str(e))
+                return redirect('warehousestock_list')  
+    else:  
+        form = WarehousestockForm()  
+    return render(request,'pages/warehousestock_create.html',{'form':form})  
+
+@login_required
+def warehousestockDelete(request, id):
+    warehousestock = Warehousestock.objects.get(id=id)
+    try:
+        warehousestock.delete()
+        messages.success(request, "Data berhasil dihapus.")
+    except:
+        messages.error(request, "Data gagal dihapus.")
+    return redirect('warehousestock_list')
+
+@login_required
+def warehousestockDetail(request, id):
+    warehousestock = Warehousestock.objects.get(id=id)
+    return render(request, 'pages/warehousestock_detail.html', {'warehousestock':warehousestock})

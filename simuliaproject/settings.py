@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['192.168.1.6','127.0.0.1', 'adiram17.pythonanywhere.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'import_export',
     'widget_tweaks',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -107,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Jakarta'
 
 USE_I18N = True
 
