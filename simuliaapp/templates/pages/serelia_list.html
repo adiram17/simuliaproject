@@ -17,7 +17,7 @@
             </button>
             {{seed_type}}
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="/serelia_list">All</a>
+              <a class="dropdown-item" href="/serelia_list">Semua</a>
               <a class="dropdown-item" href="/serelia_list/Benih%20Tetua">Benih Tetua</a>
               <a class="dropdown-item" href="/serelia_list/Benih%20Inti">Benih Inti</a>
               <a class="dropdown-item" href="/serelia_list/Benih%20Hibrida">Benih Hibrida</a>
@@ -53,19 +53,19 @@
                     </td>
                     <td>
                         <a type="button" class="btn btn-success mb-1 btn-block btn-sm"
-                            href="/serelia_detail/{{ serelia.id }}">Detail</a>
+                            href="/serelia_detail/{{ serelia.id }}">Lihat</a>
                         <button type="button" class="btn btn-secondary mb-1 btn-block btn-sm" data-toggle="modal"
                             data-target="#exampleModal" data-sereliaid="{{ serelia.id }}"
                             data-serelialocationid="{{ serelia.locationid }} - {{ serelia.address }}">
-                            Delete
+                            Hapus
                         </button>
                     </td>
                 </tr>
                 {%endfor%}
             </tbody>
         </table>
-        <a type="button" class="btn btn-success btn-block mt-2" href="{%url 'serelia_create' %}">Add Data</a>
-        <a type="button" class="btn btn-secondary btn-block mt-2" href="{%url 'home' %}">Back</a>
+        <a type="button" class="btn btn-success btn-block mt-1" href="{%url 'serelia_create' %}">Tambah Data</a>
+        <a type="button" class="btn btn-secondary btn-block mt-1" href="{%url 'home' %}">Kembali</a>
     </div>
 </div>
 
@@ -75,8 +75,8 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Record?</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="exampleModalLabel">Yakin hapus data?</h5>
+                <button type="button" class="close " data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -84,8 +84,8 @@
                 <p id="contentmodal"></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <a type="button" class="btn btn-success" id="deletelinkmodal" href="">Yes</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <a type="button" class="btn btn-success" id="deletelinkmodal" href="">Ya</a>
             </div>
         </div>
     </div>
@@ -97,7 +97,9 @@
         $('#serelia-list').DataTable({ 
             "pageLength": 5, 
             "paging":true,
-            "searching": false 
+            "searching": false,
+            "pagingType": "simple",
+            "bInfo" : false
         });
     });
     $('#exampleModal').on('show.bs.modal', function (event) {

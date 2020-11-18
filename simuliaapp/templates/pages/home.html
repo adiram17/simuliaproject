@@ -29,7 +29,7 @@
         {{ message }}
       </div>
       {% endfor %}
-      <div id="carouselExampleControls" class="carousel slide mb-2" data-ride="carousel">
+      <div id="carouselExampleControls" class="carousel slide mb-1" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -55,20 +55,18 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-      </br>
-      </br>
 
       <div class="text-center ">
-        <div class="mb-2">
+        <div class="mb-1">
           <a type="button" href="{% url 'serelia_list'%}" class="btn btn-success btn-block">Standing Crop Benih</a>
         </div>
-        <div class="mb-2">
+        <div class="mb-1">
           <a type="button" href="{% url 'processing_list'%}" class="btn btn-success btn-block">Prosessing Benih</a>
         </div>
-        <div class="mb-2">
+        <div class="mb-1">
           <a type="button" href="{% url 'warehousestock_list'%}" class="btn btn-success btn-block">Stok Gudang PS</a>
         </div>
-        <div class="mb-2">
+        <div class="mb-1">
           <a type="button" href="{% url 'contact'%}" class="btn btn-success btn-block">Kontak</a>
         </div>
       </div>

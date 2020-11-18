@@ -39,7 +39,7 @@ class Serelia(models.Model):
     address = models.TextField(db_column='address', max_length=1000, blank=False, verbose_name='Alamat')
     plant_date = models.DateField(db_column='plant_date', max_length=100, blank= True, null=True, verbose_name='Tanggal Tanam')
     variety = models.ForeignKey(Variety, on_delete=models.CASCADE, verbose_name='Varietas')
-    area = models.IntegerField(db_column='area', blank=False, default=0, verbose_name='Luas Lahan')
+    area = models.FloatField(db_column='area', blank=False,  verbose_name='Luas Lahan (ha)')
     obstacle = models.TextField(db_column='obstacle',max_length=1000, blank=False, verbose_name='Kendala')
     cp_name = models.CharField(db_column='cp_name',max_length=100, blank=False, verbose_name='Contact Person')
     evidence = models.ImageField(upload_to='uploaded/evidence', verbose_name='Upload Image')
@@ -62,7 +62,7 @@ class Processing(models.Model):
     processingid = models.CharField(db_column='processingid', max_length=50, blank=False, verbose_name='Processing ID')
     variety = models.ForeignKey(Variety, on_delete=models.CASCADE, verbose_name='Varietas')
     in_date = models.DateField(db_column='in_date', max_length=100, blank= True, null=True, verbose_name='Tanggal Masuk')
-    weight = models.IntegerField(db_column='weight', blank=False, default=0, verbose_name='Berat Tongkol (kg)')
+    weight = models.FloatField(db_column='weight', blank=False,  verbose_name='Berat Tongkol (kg)')
     source = models.CharField(db_column='source', max_length=100, blank=False, verbose_name='Asal Benih')
     cp_name = models.TextField(db_column='cp_name',max_length=100, blank=False, verbose_name='Penanggung Jawab')
     out_date = models.DateField(db_column='out_date', max_length=100, blank= True, null=True, verbose_name='Tanggal Keluar')
@@ -86,9 +86,9 @@ def processing_delete(sender, instance, **kwargs):
 class Warehousestock(models.Model):
     stockid = models.CharField(db_column='stockid', max_length=50, blank=False, verbose_name='Stock ID')
     variety = models.ForeignKey(Variety, on_delete=models.CASCADE, verbose_name='Varietas')
-    start_weight = models.IntegerField(db_column='start_weight', blank=False, default=0, verbose_name='Stok Awal (kg)')
-    out_weight = models.IntegerField(db_column='out_weight', blank=False, default=0, verbose_name='Keluar (kg)')
-    end_weight = models.IntegerField(db_column='end_weight', blank=False, default=0, verbose_name='Stok Akhir (kg)')
+    start_weight = models.FloatField(db_column='start_weight', blank=False,  verbose_name='Stok Awal (kg)')
+    out_weight = models.FloatField(db_column='out_weight', blank=False,  verbose_name='Keluar (kg)')
+    end_weight = models.FloatField(db_column='end_weight', blank=False,  verbose_name='Stok Akhir (kg)')
     created_date = models.DateField( blank=True, default=datetime.now, verbose_name='Tanggal Laporan')
     
     class Meta:

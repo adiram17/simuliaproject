@@ -9,7 +9,7 @@
 </style>
 <div id="content-wrapper">
     <div class="container">
-        <p class="media-body mb-0 lh-125 border-gray">
+        <p class="small media-body mb-0 lh-125 border-gray">
             <strong>Location ID: {{serelia.locationid}}</strong>
             </br> Tanggal Laporan: {{serelia.created_date}}
             </br> Tipe Benih: {{serelia.seed_type}}
@@ -24,7 +24,7 @@
             <img src="/simuliaapp/media/{{serelia.evidence}}" alt="not found" class="img-responsive">
         </div>
         <div>
-            <a type="button" class="btn btn-secondary btn-block mt-2" href="{%url 'serelia_list' %}">Back</a>
+            <a type="button" class="btn btn-secondary btn-block mt-1" href="{%url 'serelia_list' %}">Kembali</a>
         </div>
     </div>
 </div>

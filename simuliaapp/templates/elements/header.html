@@ -1,7 +1,5 @@
 <nav class="navbar navbar-expand navbar-dark bg-success static-top">
     <a class="navbar-brand mr-1" href="{% url 'home'%}">SiMulia-dev</a>
-    
-
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto mr-0">
         <li class="nav-item dropdown no-arrow">
@@ -11,9 +9,9 @@
                 {% firstof request.user.get_short_name request.user.get_username %}
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="{% url 'profile'%}">View Profile</a>
+                <a class="dropdown-item" href="{% url 'profile'%}">Profil</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{% url 'change_password'%}">Change Password</a>
+                <a class="dropdown-item" href="{% url 'change_password'%}">Ganti Sandi</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{% url 'logout'%}" data-toggle="modal" data-target="#logoutModal">Logout</a>
             </div>
